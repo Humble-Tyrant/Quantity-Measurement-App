@@ -1,11 +1,16 @@
 package com.apps.quantitymeasurement;
-import com.apps.quantitymeasurement.QuantityMeasurementApp.Feet;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class QuantityMeasurementTestApp {
+import com.apps.quantitymeasurement.QuantityMeasurementApp.Feet;
+import com.apps.quantitymeasurement.QuantityMeasurementApp.Inches;
 
-    @org.junit.Test
+public class QuantityMeasurementAppTest {
+
+
+
+
     @Test
     public void testFeetEquality_SameValue() {
         Feet feet1 = new Feet(12);
@@ -29,13 +34,51 @@ public class QuantityMeasurementTestApp {
     @Test
     public void testFeetEquality_DifferentClass() {
         Feet feet1 = new Feet(12);
-        String notAFeet = "Not a Feet";
-        assertNotEquals(notAFeet, feet1);
+        String notFeet = "Not a Feet";
+        assertNotEquals(notFeet, feet1);
     }
 
     @Test
     public void testFeetEquality_SameReference() {
-        Feet feet2 = new Feet(12);
-        assertEquals(feet2, feet2);
+        Feet feet1 = new Feet(12);
+        assertEquals(feet1, feet1);
     }
+
+
+
+
+    @Test
+    public void testInchesEquality_SameValue() {
+        Inches inches1 = new Inches(12);
+        Inches inches2 = new Inches(12);
+        assertEquals(inches1, inches2);
+    }
+
+    @Test
+    public void testInchesEquality_DifferentValue() {
+        Inches inches1 = new Inches(12);
+        Inches inches2 = new Inches(15);
+        assertNotEquals(inches1, inches2);
+    }
+
+    @Test
+    public void testInchesEquality_NullComparison() {
+        Inches inches1 = new Inches(12);
+        assertNotEquals(null, inches1);
+    }
+
+    @Test
+    public void testInchesEquality_DifferentClass() {
+        Inches inches1 = new Inches(12);
+        String notInches = "Not an Inches";
+        assertNotEquals(notInches, inches1);
+    }
+
+    @Test
+    public void testInchesEquality_SameReference() {
+        Inches inches1 = new Inches(12);
+        assertEquals(inches1, inches1);
+    }
+
+
 }
